@@ -7,6 +7,8 @@ class Intervention < ApplicationRecord
     belongs_to :column, optional: true
     belongs_to :elevator, optional: true
 
+    after_save :create_intervention_ticket
+
     def create_intervention_ticket
         client = ZendeskAPI::Client.new do |config|
             config.url = ENV['ZENDESK_URL']
@@ -16,7 +18,7 @@ class Intervention < ApplicationRecord
         end
         
         ZendeskAPI::Ticket.create!(client, 
-            :subject => "Support Request For Client #{self.customer.company_name}", 
+            :subject => "Support Request For Client #{self.author.first_name} #{self.author.last_name}", 
             :comment => { 
                 :value => "Please take note of the following service request.\n\n
                     Customer: #{self.customer.company_name}\n
@@ -29,6 +31,7 @@ class Intervention < ApplicationRecord
             }, 
             :requester => { 
                 "name": "#{self.author.first_name} #{self.author.last_name}", 
+                "email": "#{self.author.email}",
             },
             :priority => "normal",
             :type => "problem"
