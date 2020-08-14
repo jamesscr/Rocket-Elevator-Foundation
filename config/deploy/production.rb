@@ -27,9 +27,9 @@ set :rvm_ruby_version, '2.6.5'
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-role :app, %w{ubuntu@15.223.104.110}
-role :web, %w{ubuntu@15.223.104.110}
-role :db,  %w{ubuntu@15.223.104.110}
+# role :app, %w{ubuntu@15.223.104.110}
+# role :web, %w{ubuntu@15.223.104.110}
+# role :db,  %w{ubuntu@15.223.104.110}
 
 
 
