@@ -1,5 +1,11 @@
 $( document ).ready(function() {
-    
+    $(".hide-build").hide()
+    $(".hide-battery").hide()
+    $(".hide-column").hide()
+    $(".hide-elevator").hide()
+    $(".hide-employee").hide()
+    $(".hide-description").hide()
+    $(".hide-submit").hide()
     // Sets the building selector
     $("select#cust-select").change(function(){
         console.log("Customer has changed");
@@ -9,6 +15,7 @@ $( document ).ready(function() {
             var row = "<option value=\"" + "" + "\">" + "Building" + "</option>";
             $(row).appendTo("select#build-select");
         } else {
+            $(".hide-build").show();
             var customerID = $(this).val();
             $.ajax({
                 dataType: "json",
@@ -43,6 +50,7 @@ $( document ).ready(function() {
             var row = "<option value=\"" + "" + "\">" + "Battery" + "</option>";
             $(row).appendTo("select#battery-select");
         } else {
+            $(".hide-battery").show()
             var buildingID = $(this).val();
             $.ajax({
                 dataType: "json",
@@ -77,6 +85,7 @@ $( document ).ready(function() {
             var row = "<option value=\"" + "" + "\">" + "Column" + "</option>";
             $(row).appendTo("select#col-select");
         } else {
+            $(".hide-column").show()
             var batteryID = $(this).val();
             $.ajax({
                 dataType: "json",
@@ -111,6 +120,7 @@ $( document ).ready(function() {
             var row = "<option value=\"" + "" + "\">" + "Elevator" + "</option>";
             $(row).appendTo("select#elevator-select");
         } else {
+            $(".hide-elevator").show()
             var columnID = $(this).val();
             $.ajax({
                 dataType: "json",
@@ -133,6 +143,18 @@ $( document ).ready(function() {
                     })
                 }
             });
+        }
+    });
+    // Sets the employess selector
+    $("select#elevator-select").change(function(){
+        console.log("Elevator has changed");
+        console.log($("select#elevator-select").val());
+        if ($("select#elevator-select").val() === "") {
+            $("select#emp-select option").remove();
+        }else{
+            $(".hide-employee").show()
+            $(".hide-description").show()
+            $(".hide-submit").show()
         }
     });
 });
