@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get 'welcome' => 'watson#welcome'
   get 'interventions' => 'interventions#new'
   post 'interventions' => 'interventions#create'
-  get 'mediatest' => 'pages#mediatest'
+  # get 'mediatest' => 'pages#mediatest'
 
   get 'get_buildings_by_customer/:customerID', to: 'buildings#get_buildings_by_customer'
   get 'get_batteries_by_building/:buildingID', to: 'batteries#get_batteries_by_building'

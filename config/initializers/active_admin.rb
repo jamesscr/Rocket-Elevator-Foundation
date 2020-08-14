@@ -4,12 +4,13 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Elevatorsrails"
+  config.site_title = "Rocket Elevators Admin"
+  config.site_title_link  = "/index#home"
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
-  # config.site_title_link = "/"
+  config.site_title_link = "/index#home"
 
   # Set an optional image to be displayed for the header
   # instead of a string (overrides :site_title)

@@ -37,10 +37,10 @@
   </head>
  
   <body class="smoothscroll enable-animation grain-blue">
-    <div id="header" class="navbar-toggleable-md sticky clearfix">
+    <div id="header" class="navbar-toggleable-md sticky header-sm dark clearfix">
       <!-- TOP NAV -->
       <header id="topNav">
-        <div class="container">
+        <div class="container-fluid">
 
           <!-- Mobile Menu Button -->
           <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
@@ -82,9 +82,7 @@
                 <li><!-- CONTACT -->
                   <%= link_to 'CONTACT', index_path(anchor: "contact") %>
                 </li>
-                <li>
-                  <%= link_to 'LOGIN', login_path %>
-                </li>
+                
                 <!-- INTERVENTIONS --> 
                 <% if employee_signed_in?%>
                 <% if current_employee%>
@@ -93,6 +91,12 @@
                   </li>
                 <%end%>
                 <%end%>
+                <li class="dropdown">
+                  <%= link_to 'USER LOGIN', login_path %>
+                  <ul class="dropdown-menu">
+                  <%= link_to 'ADMIN LOGIN', employee_session_path %>
+                  </ul>
+                </li>
               </ul>
             </nav>
           </div>
