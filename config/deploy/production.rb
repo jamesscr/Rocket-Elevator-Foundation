@@ -3,12 +3,12 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server "15.223.104.110", user: "ubuntu", roles: %w{app db web}
+server "99.79.123.96", user: "ubuntu", roles: %w{app db web}
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 app = ENV['APP']
 if app.nil? or app.empty?
-  app = "James_Allan" 
+  app = "JamesAllan" 
 end
 set :application, app
 set :rails_env, "development"
